@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class GrpcRestDemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<GrpcRestDemoApplication>(*args)
+  runApplication<GrpcRestDemoApplication>(*args)
 }
