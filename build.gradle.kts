@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter")
+  implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("com.google.protobuf:protobuf-java:3.6.1")
@@ -42,6 +43,8 @@ tasks.withType<KotlinCompile> {
 }
 
 protobuf {
+  generatedFilesBaseDir = "$projectDir/src/generated"
+
   protoc {
     // The artifact spec for the Protobuf Compiler
     artifact = "com.google.protobuf:protoc:3.6.1"
