@@ -1,8 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.google.protobuf.gradle.*
 
 plugins {
   id("org.springframework.boot") version "2.2.2.RELEASE"
   id("io.spring.dependency-management") version "1.0.8.RELEASE"
+  id("com.google.protobuf") version "0.8.11"
   kotlin("jvm") version "1.3.61"
   kotlin("plugin.spring") version "1.3.61"
 }
@@ -32,5 +34,28 @@ tasks.withType<KotlinCompile> {
   kotlinOptions {
     freeCompilerArgs = listOf("-Xjsr305=strict")
     jvmTarget = "1.8"
+  }
+}
+
+protobuf {
+  protoc {
+    // The artifact spec for the Protobuf Compiler
+    artifact = "com.google.protobuf:protoc:3.6.1"
+  }
+  plugins {
+    // Optional: an artifact spec for a protoc plugin, with "grpc" as
+    // the identifier, which can be referred to in the "plugins"
+    // container of the "generateProtoTasks" closure.
+    id("grpc") {
+      artifact = "io.grpc:protoc-gen-grpc-java:1.15.1"
+    }
+  }
+  generateProtoTasks {
+    ofSourceSet("main").forEach {
+      it.plugins {
+        // Apply the "grpc" plugin whose spec is defined above, without options.
+        id("grpc")
+      }
+    }
   }
 }
