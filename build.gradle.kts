@@ -21,6 +21,10 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("com.google.protobuf:protobuf-java:3.6.1")
+  implementation("io.grpc:grpc-netty-shaded:1.26.0")
+  implementation("io.grpc:grpc-protobuf:1.26.0")
+  implementation("io.grpc:grpc-stub:1.26.0")
   testImplementation("org.springframework.boot:spring-boot-starter-test") {
     exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
   }
