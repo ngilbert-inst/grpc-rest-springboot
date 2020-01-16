@@ -43,7 +43,7 @@ tasks.withType<KotlinCompile> {
 }
 
 protobuf {
-  generatedFilesBaseDir = "$projectDir/generated"
+  generatedFilesBaseDir = "$projectDir/src/main/java/generated"
 
   protoc {
     // The artifact spec for the Protobuf Compiler
@@ -61,7 +61,9 @@ protobuf {
     ofSourceSet("main").forEach {
       it.plugins {
         // Apply the "grpc" plugin whose spec is defined above, without options.
-        id("grpc")
+        id("grpc") {
+          outputSubDir = ""
+        }
       }
     }
   }

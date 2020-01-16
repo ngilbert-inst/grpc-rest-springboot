@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 class GrpcController {
 
   @GetMapping("/hackweek/grpc")
-  fun blog(): String {
+  fun msg(): String {
     return "I'm alive"
   }
 
