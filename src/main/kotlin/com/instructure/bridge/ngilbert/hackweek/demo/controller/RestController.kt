@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/hackweek")
 class RestController {
 
-  @GetMapping("/hackweek")
+  @GetMapping("/")
   fun msg(): String {
     return "I'm alive"
   }
 
-  @GetMapping(value = ["/hackweek/protobuf"], produces = [PROTOBUF_MEDIA_TYPE_VALUE])
+  @GetMapping(value = ["/protobuf"], produces = [PROTOBUF_MEDIA_TYPE_VALUE])
   fun protobufMsg(): ResponseEntity<MsgResponse> = ResponseEntity.ok(
     MsgResponse
       .newBuilder()
-      .setMessage("Hello, Yes, I'm alive.")
+      .setMessage("Hello, Yes, I am alive.")
       .build()
   )
 
