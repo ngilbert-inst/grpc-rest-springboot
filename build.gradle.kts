@@ -43,7 +43,7 @@ tasks.withType<KotlinCompile> {
 }
 
 protobuf {
-  generatedFilesBaseDir = "$projectDir/src/generated"
+  generatedFilesBaseDir = "$projectDir/generated"
 
   protoc {
     // The artifact spec for the Protobuf Compiler

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @RestController
 @RequestMapping("/api")
-class RestController {
+class GrpcController {
 
-  @GetMapping("/hackweek")
+  @GetMapping("/hackweek/grpc")
   fun blog(): String {
     return "I'm alive"
   }
