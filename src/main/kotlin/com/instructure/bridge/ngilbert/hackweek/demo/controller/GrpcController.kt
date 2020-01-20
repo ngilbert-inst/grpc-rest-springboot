@@ -1,14 +1,12 @@
 package com.instructure.bridge.ngilbert.hackweek.demo.controller
 
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import com.instructure.bridge.ngilbert.hackweek.demo.DemoServiceGrpc
+import org.lognet.springboot.grpc.GRpcService
 
-@RestController
-@RequestMapping("/api")
-class GrpcController {
+@GRpcService
+class GrpcController : DemoServiceGrpc.DemoServiceImplBase() {
 
-  @GetMapping("/hackweek/grpc")
+  @Override
   fun msg(): String {
     return "I'm alive"
   }
